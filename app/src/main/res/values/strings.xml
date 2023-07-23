@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Substation event reporting</string>
+    <string name="userid_hint">SAP Id</string>
+</resources>

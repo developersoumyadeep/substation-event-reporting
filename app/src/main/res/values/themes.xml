@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SubstationEventReporting" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:outlineAmbientShadowColor">#0075FF</item>
+        <item name="android:outlineSpotShadowColor">#0075FF</item>
+<!--        <item name="android:ambientShadowAlpha">0.5</item>-->
+        <item name="android:shadowRadius">20</item>
+    </style>
+</resources>
