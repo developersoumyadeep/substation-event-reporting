@@ -1,26 +1,37 @@
 package com.example.substationeventreporting;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.ArrayList;
 
-public class LogInterruption extends AppCompatActivity {
+public class FeederListActivity extends AppCompatActivity {
 
     private ListView listView;
-
+    private TextView feederListHeader;
+    private TextView feederListSubHeader;
     private ArrayList<FeederModel> feederModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //This line disables the night mode. Put this only in the launcher activity onCreate() method
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_interruption);
+        setContentView(R.layout.activity_feeder_list);
 
         listView = findViewById(R.id.listView);
+        feederListHeader = findViewById(R.id.tvFeederListHeader);
+        feederListSubHeader = findViewById(R.id.tvFeederListSubHeader);
+
+        Intent intent = getIntent();
+
+        feederListHeader.setText(intent.getStringExtra("feederListHeader"));
+        feederListSubHeader.setText(intent.getStringExtra("feederListSubHeader"));
 
         feederModels = new ArrayList<>();
         feederModels.add(new FeederModel("Feeder No 1", true));
@@ -51,6 +62,15 @@ public class LogInterruption extends AppCompatActivity {
         CustomAdapter adapter = new CustomAdapter(this, feederModels);
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), LogInterruptionActivity.class);
+                intent.putExtra("selectedFeeder", adapter.getItem(i));
+                startActivity(intent);
+            }
+        });
 
     }
 }

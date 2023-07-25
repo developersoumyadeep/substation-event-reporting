@@ -12,7 +12,10 @@
             android:theme="@style/Theme.SubstationEventReporting"
             tools:targetApi="31">
         <activity
-                android:name=".LogInterruption"
+                android:name=".LogInterruptionActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".FeederListActivity"
                 android:exported="false"/>
         <activity
                 android:name=".MainScreenActivity"

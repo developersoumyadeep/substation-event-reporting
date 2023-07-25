@@ -20,7 +20,9 @@ public class MainScreenActivity extends AppCompatActivity {
         cvLogInterruption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),LogInterruption.class);
+                Intent intent = new Intent(getApplicationContext(), FeederListActivity.class);
+                intent.putExtra("feederListHeader", "Log interruption data");
+                intent.putExtra("feederListSubHeader", "Select a feeder");
                 startActivity(intent);
             }
         });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.WindowCompat;
 
 public class LoginActivity extends AppCompatActivity {
@@ -12,6 +13,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //This line disables the night mode. Put this only in the launcher activity onCreate() method
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
 //        getSupportActionBar().hide();
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);

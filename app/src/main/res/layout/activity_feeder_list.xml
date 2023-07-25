@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FeederListActivity"
+        android:background="@drawable/bitmap">
+
+    <TextView
+              android:id="@+id/tvFeederListHeader"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Log interruption data"
+              android:textSize="20sp"
+              android:textStyle="bold"
+              android:textColor="@color/black"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              android:layout_marginTop="80dp"
+              android:layout_marginStart="20dp"
+              />
+
+    <TextView
+              android:id="@+id/tvFeederListSubHeader"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Select a feeder"
+              android:textColor="@color/gray"
+              android:textSize="20sp"
+              android:textStyle="bold"
+              app:layout_constraintTop_toBottomOf="@+id/tvFeederListHeader"
+              app:layout_constraintStart_toStartOf="@+id/tvFeederListHeader"
+              android:layout_marginTop="10dp"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/outage_icon"
+            app:layout_constraintTop_toTopOf="@+id/tvFeederListHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="outage_icon"/>
+
+    <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/blue_foreground_layer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFeederListSubHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            app:flow_verticalAlign="bottom"
+            android:divider="@android:color/transparent"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

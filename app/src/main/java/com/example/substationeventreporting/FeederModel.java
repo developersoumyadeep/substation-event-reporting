@@ -1,8 +1,11 @@
 package com.example.substationeventreporting;
 
-public class FeederModel {
+import java.io.Serializable;
+
+public class FeederModel implements Serializable {
     private String feederName;
     private boolean isFeederCharged;
+    private FeederType feederType;
 
     public FeederModel(String feederName, boolean isFeederCharged) {
         this.feederName = feederName;
