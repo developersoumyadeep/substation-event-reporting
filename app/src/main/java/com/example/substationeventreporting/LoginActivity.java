@@ -1,9 +1,9 @@
 package com.example.substationeventreporting;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.WindowCompat;
 

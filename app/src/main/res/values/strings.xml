@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Substation event reporting</string>
     <string name="userid_hint">SAP Id</string>
+    <string name="source_change_over_from_feeder">Siliguri Ckt 1</string>
+    <string name="selected_feeder_for_load_record">Patheswari</string>
+    <string name="energy_meter_number">WEB66547</string>
 </resources>

@@ -13,12 +13,12 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends ArrayAdapter<FeederModel> {
+public class CustomAdapterFeederList extends ArrayAdapter<FeederModel> {
 
     private ArrayList<FeederModel> data;
     private Context context;
 
-    public CustomAdapter(Context context, ArrayList<FeederModel> data) {
+    public CustomAdapterFeederList(Context context, ArrayList<FeederModel> data) {
         super(context,R.layout.feeder_list_item, data);
         this.context = context;
         this.data = data;
@@ -51,9 +51,9 @@ public class CustomAdapter extends ArrayAdapter<FeederModel> {
         }
 
         viewHolder.feederNameTextView.setText(feederModel.getFeederName());
-        viewHolder.currentStatusTextView.setText("Current Status: "+(feederModel.isFeederCharged()?"ON":"OFF"));
+        viewHolder.currentStatusTextView.setText("Current Status: "+(feederModel.getIsCharged()?"ON":"OFF"));
 
-        if (feederModel.isFeederCharged()) {
+        if (feederModel.getIsCharged()) {
             viewHolder.listItemConstraintLayout.setBackgroundResource(R.drawable.feeder_list_item_red_border_bg);
             viewHolder.currentStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.red));
         } else {
