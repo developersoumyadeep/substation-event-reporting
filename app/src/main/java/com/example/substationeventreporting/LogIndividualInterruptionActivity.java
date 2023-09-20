@@ -1,12 +1,10 @@
 package com.example.substationeventreporting;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
@@ -14,7 +12,7 @@ import java.util.Calendar;
 import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
 
-public class LogInterruptionActivity extends AppCompatActivity {
+public class LogIndividualInterruptionActivity extends AppCompatActivity {
 
     Spinner spinnerInterruptionType;
     TextView tvSelectedFeederName;
@@ -22,7 +20,6 @@ public class LogInterruptionActivity extends AppCompatActivity {
     private TextView interruptionDurationLabelTextView;
     private TextView startDateTextView;
     private TextView startTimeTextView;
-    private TextView tvToLabel;
     private TextView endDateTextView;
     private TextView endTimeTextView;
     private TextView endDateLabelTextView;
@@ -32,7 +29,7 @@ public class LogInterruptionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_interruption);
+        setContentView(R.layout.activity_log_indidual_interruption);
         initializeViews();
         spinnerInterruptionType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -108,7 +105,6 @@ public class LogInterruptionActivity extends AppCompatActivity {
         startTimeTextView = findViewById(R.id.tvLogInterruptionStartTimePicker);
         endDateTextView = findViewById(R.id.tvLogInterruptionEndDatePicker);
         endTimeTextView = findViewById(R.id.tvLogInterruptionEndTimePicker);
-        tvToLabel = findViewById(R.id.tvToLabel);
         endDateLabelTextView = findViewById(R.id.tvLogInterruptionEndDatePickerLabel);
         endTimeLabelTextView = findViewById(R.id.tvLogInterruptionEndTimePickerLabel);
         interruptionCauseLabelTextView = findViewById(R.id.tvInterruptionCauseLabel);
@@ -119,7 +115,7 @@ public class LogInterruptionActivity extends AppCompatActivity {
         tvSelectedFeederName.setText(((FeederModel)intent.getSerializableExtra("selectedFeeder")).getFeederName());
 
         //Initialize the spinners
-        String[] interruptionTypes = {"Tripping", "Breakdown", "Planned shutdown", "Emergency shutdown", "Main power fail", "Load shedding", "Source changeover"};
+        String[] interruptionTypes = {"Tripping", "Breakdown", "Planned shutdown", "Emergency shutdown", "Load shedding"};
         String[] faultNatures = {"EF OC", "EF", "OC", "High Set OC"};
         ArrayAdapter adapterInterruptionType = new ArrayAdapter(this, R.layout.spinner_item, interruptionTypes);
         ArrayAdapter adapterFaultNature = new ArrayAdapter(this, R.layout.spinner_item, faultNatures);
@@ -147,7 +143,6 @@ public class LogInterruptionActivity extends AppCompatActivity {
 
     private void hideViews() {
         interruptionDurationLabelTextView.setText("Interruption start time");
-        tvToLabel.setVisibility(View.GONE);
         endDateLabelTextView.setVisibility(View.GONE);
         endDateTextView.setVisibility(View.GONE);
         endTimeLabelTextView.setVisibility(View.GONE);
@@ -157,7 +152,6 @@ public class LogInterruptionActivity extends AppCompatActivity {
     }
 
     private void unhideViews() {
-        tvToLabel.setVisibility(View.VISIBLE);
         endDateLabelTextView.setVisibility(View.VISIBLE);
         endDateTextView.setVisibility(View.VISIBLE);
         endTimeLabelTextView.setVisibility(View.VISIBLE);

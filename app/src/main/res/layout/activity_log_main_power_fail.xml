@@ -5,41 +5,42 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LogInterruptionActivity">
+        tools:context=".LogMainPowerFailActivity">
 
     <TextView
-              android:id="@+id/tvLogInterruptionHeader"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              android:padding="20dp"
-              android:text="Log Interruption"
-              android:textStyle="bold"
-              android:textColor="@color/black"
-              android:textSize="20sp"
-              android:background="@drawable/bottom_gray_border_bg"
+            android:id="@+id/tvLogMainPowerFailHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="20dp"
+            android:text="Log main power fail"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/bottom_gray_border_bg"
     />
 
     <androidx.core.widget.NestedScrollView
             android:id="@+id/parentNestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvLogInterruptionHeader"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLogMainPowerFailHeader"
             app:layout_constraintStart_toStartOf="parent"
-            android:fillViewport="true" app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parentConstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <TextView
-                    android:id="@+id/tvLogInterruptionSelectedFeederLabel"
+                    android:id="@+id/tvAffected33kVIncomingSourceFeederLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selected feeder"
+                    android:text="Affected 33kV Incoming source"
                     android:textSize="15sp"
                     android:textColor="#FF595959"
                     app:layout_constraintTop_toTopOf="parent"
@@ -48,37 +49,26 @@
                     android:layout_marginTop="12dp"/>
 
             <TextView
-                    android:id="@+id/tvLogInterruptionSelectedFeeder"
+                    android:id="@+id/tvAffected33kBIncomingSourceFeeder"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tvLogInterruptionSelectedFeederLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAffected33kVIncomingSourceFeederLabel"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="8dp"
                     android:layout_marginHorizontal="20dp"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="8dp"
-                    android:text="Patheswari"
+                    android:text="@string/source_change_over_from_feeder"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:background="@drawable/all_gray_border_disabled_tv_bg"/>
-            <TextView
-                    android:id="@+id/tvLogInterruptionTypeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Interruption type"
-                    android:textSize="15sp"
-                    android:textColor="#FF595959"
-                    app:layout_constraintTop_toBottomOf="@+id/tvLogInterruptionSelectedFeeder"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="12dp"/>
 
             <Spinner
-                    android:id="@+id/spinnerInterruptionType"
+                    android:id="@+id/spinnerAffected33kVIncomingSource"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tvLogInterruptionTypeLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAffected33kBIncomingSourceFeeder"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="8dp"
@@ -87,34 +77,22 @@
             />
 
             <TextView
-                    android:id="@+id/tvLogInterruptionFaultNatureLabel"
+                    android:id="@+id/tvLogIndividual33kVInterruptionMessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fault nature"
+                    android:text="*Please log 33kV feeder interruption separately"
                     android:textSize="15sp"
                     android:textColor="#FF595959"
-                    app:layout_constraintTop_toBottomOf="@+id/spinnerInterruptionType"
+                    app:layout_constraintTop_toBottomOf="@+id/spinnerAffected33kVIncomingSource"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="12dp"/>
-
-            <Spinner
-                    android:id="@+id/spinnerFaultNature"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tvLogInterruptionFaultNatureLabel"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginHorizontal="20dp"
-                    style="@style/spinner_style"
-            />
 
             <TextView
                     android:id="@+id/tvInterruptionDurationLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/spinnerFaultNature"
+                    app:layout_constraintTop_toBottomOf="@id/tvLogIndividual33kVInterruptionMessage"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="15dp"
@@ -178,25 +156,13 @@
                     android:background="@drawable/all_side_blue_border_enabled_tv_bg"/>
 
             <TextView
-                    android:id="@+id/tvToLabel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@+id/tvLogInterruptionStartDatePicker"
-                    app:layout_constraintEnd_toEndOf="@+id/tvLogInterruptionStartTimePicker"
-                    app:layout_constraintTop_toBottomOf="@id/tvLogInterruptionStartTimePicker"
-                    android:text="TO"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:layout_marginTop="20dp"/>
-            <TextView
                     android:id="@+id/tvLogInterruptionEndDatePickerLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="End date"
                     android:textSize="15sp"
                     android:textColor="#FF595959"
-                    app:layout_constraintTop_toBottomOf="@+id/tvToLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLogInterruptionStartDatePicker"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="12dp"/>
@@ -241,37 +207,34 @@
                     android:background="@drawable/all_side_blue_border_enabled_tv_bg"/>
 
             <TextView
-                    android:id="@+id/tvInterruptionCauseLabel"
+                    android:id="@+id/tvIncomingSourceChangedOverToLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/tvLogInterruptionEndTimePicker"
+                    app:layout_constraintTop_toBottomOf="@id/tvLogInterruptionEndDatePicker"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="15dp"
                     android:layout_marginHorizontal="20dp"
                     android:background="@drawable/top_gray_border_bg"
-                    android:text="Interruption cause"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
+                    android:text="Incoming 33kV source changed over to"
+                    android:textSize="15sp"
+                    android:textColor="#FF595959"
                     android:paddingTop="10dp"/>
 
-            <EditText
-                    android:id="@+id/etInterruptionCause"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:inputType="text|textMultiLine"
-                    app:layout_constraintTop_toBottomOf="@+id/tvInterruptionCauseLabel"
+            <Spinner
+                    android:id="@+id/spinnerSourceChangeOverTo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tvIncomingSourceChangedOverToLabel"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="8dp"
-                    android:padding="5dp"
-                    android:gravity="top|left"
-                    android:background="@drawable/all_side_blue_border_enabled_tv_bg"/>
+                    android:layout_marginHorizontal="20dp"
+                    style="@style/spinner_style"
+            />
 
             <android.widget.Button
-                    android:id="@+id/btnLogInterruptionSubmit"
+                    android:id="@+id/btnLoadRecordSubmit"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:text="Submit"
@@ -280,10 +243,19 @@
                     android:textColor="@color/white"
                     android:background="@drawable/blue_filled_in_button"
                     android:textAllCaps="false"
-                    app:layout_constraintTop_toBottomOf="@+id/etInterruptionCause"
-                    app:layout_constraintEnd_toEndOf="@+id/etInterruptionCause"
-                    app:layout_constraintStart_toEndOf="@+id/btnLogInterruptionCancel"
-                    android:layout_marginTop="12dp"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5"
+            />
 
             <android.widget.Button
                     android:id="@+id/btnLogInterruptionCancel"
@@ -295,17 +267,14 @@
                     android:textColor="@color/primary_color"
                     android:background="@drawable/blue_border_white_bg_btn"
                     android:textAllCaps="false"
-                    app:layout_constraintTop_toBottomOf="@+id/etInterruptionCause"
-                    app:layout_constraintStart_toStartOf="@+id/etInterruptionCause"
-                    app:layout_constraintEnd_toStartOf="@+id/btnLogInterruptionSubmit"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="30dp"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.core.widget.NestedScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
