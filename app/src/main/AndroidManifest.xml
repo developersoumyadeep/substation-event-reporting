@@ -3,6 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools">
 
     <application
+            android:name=".FeederDatabase"
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
             android:fullBackupContent="@xml/backup_rules"
@@ -12,7 +13,22 @@
             android:theme="@style/Theme.SubstationEventReporting"
             tools:targetApi="31">
         <activity
-                android:name=".LogInterruptionActivity"
+                android:name=".RecordEnergyConsumptionActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".RecordLoadActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".LogMainPowerFailActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".LogSourceChangeOverActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".LogInterruptionOptionsActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".LogIndividualInterruptionActivity"
                 android:exported="false"/>
         <activity
                 android:name=".FeederListActivity"

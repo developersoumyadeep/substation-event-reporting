@@ -43,7 +43,7 @@
             android:contentDescription="outage_icon"/>
 
     <ListView
-            android:id="@+id/listView"
+            android:id="@+id/listViewFeederList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/blue_foreground_layer"
