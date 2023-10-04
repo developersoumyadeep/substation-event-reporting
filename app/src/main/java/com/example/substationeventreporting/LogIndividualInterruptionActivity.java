@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-<<<<<<< HEAD:app/src/main/java/com/example/substationeventreporting/LogInterruptionActivity.java
-import android.os.Bundle;
-=======
->>>>>>> master:app/src/main/java/com/example/substationeventreporting/LogIndividualInterruptionActivity.java
 import androidx.fragment.app.DialogFragment;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -120,17 +116,12 @@ public class LogIndividualInterruptionActivity extends AppCompatActivity {
         tvSelectedFeederName.setText(((FeederModel)intent.getSerializableExtra("selectedFeeder")).getFeederName());
 
         //Initialize the spinners
-<<<<<<< HEAD:app/src/main/java/com/example/substationeventreporting/LogInterruptionActivity.java
         List<String> interruptionTypes = new ArrayList<>(Arrays.asList("Tripping", "Breakdown", "Planned shutdown", "Emergency shutdown", "Main power fail", "Load shedding", "Source changeover"));
         List<String> faultNatures = new ArrayList<>(Arrays.asList("EF OC", "EF", "OC", "High Set OC"));
         if (((FeederModel)intent.getSerializableExtra("selectedFeeder")).getFeederType() == FeederType.OUTGOING_11kV
          || ((FeederModel)intent.getSerializableExtra("selectedFeeder")).getFeederType() == FeederType.INCOMING_11kV) {
             interruptionTypes.remove("Main power fail");
         }
-=======
-        String[] interruptionTypes = {"Tripping", "Breakdown", "Planned shutdown", "Emergency shutdown", "Load shedding"};
-        String[] faultNatures = {"EF OC", "EF", "OC", "High Set OC"};
->>>>>>> master:app/src/main/java/com/example/substationeventreporting/LogIndividualInterruptionActivity.java
         ArrayAdapter adapterInterruptionType = new ArrayAdapter(this, R.layout.spinner_item, interruptionTypes);
         ArrayAdapter adapterFaultNature = new ArrayAdapter(this, R.layout.spinner_item, faultNatures);
         spinnerInterruptionType.setAdapter(adapterInterruptionType);
