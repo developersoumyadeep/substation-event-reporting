@@ -29,7 +29,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvLogMainPowerFailHeader"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:fillViewport="true">
+            android:fillViewport="true" app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parentConstraintLayout"
@@ -110,17 +110,19 @@
                     android:textSize="15sp"
                     android:textColor="#FF595959"
                     app:layout_constraintTop_toBottomOf="@id/tvSelectedFeeder"
-                    app:layout_constraintStart_toEndOf="@id/tvRecordedLoadLabel"
-                    android:layout_marginStart="70dp"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
+
                     android:layout_marginTop="12dp"/>
 
             <EditText
                     android:id="@+id/etVoltageLevelInKV"
-                    android:layout_width="120dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tvVoltageLevelLabel"
                     app:layout_constraintStart_toStartOf="@id/tvVoltageLevelLabel"
+                    app:layout_constraintEnd_toStartOf="@id/tvVoltageLevelUnitLabel"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
                     tools:text="11"
                     android:textSize="15sp"
                     android:paddingVertical="8dp"
@@ -136,8 +138,8 @@
                     android:textSize="15sp"
                     android:textColor="#FF595959"
                     app:layout_constraintTop_toTopOf="@id/etVoltageLevelInKV"
-                    app:layout_constraintStart_toEndOf="@id/etVoltageLevelInKV"
                     app:layout_constraintBottom_toBottomOf="@id/etVoltageLevelInKV"
+                    app:layout_constraintEnd_toStartOf="@id/guideline5"
                     android:layout_marginStart="10dp"/>
 
             <TextView
@@ -174,16 +176,17 @@
                     android:textSize="15sp"
                     android:textColor="#FF595959"
                     app:layout_constraintTop_toBottomOf="@id/etVoltageLevelInKV"
-                    app:layout_constraintStart_toStartOf="@id/etVoltageLevelInKV"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
                     android:layout_marginTop="12dp"
             />
 
             <EditText
                     android:id="@+id/etRecordTime"
-                    android:layout_width="140dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tvRecordTimeLabel"
                     app:layout_constraintStart_toStartOf="@id/tvRecordTimeLabel"
+                    app:layout_constraintEnd_toStartOf="@id/guideline5"
                     android:layout_marginTop="8dp"
                     tools:text="23:34 HRS"
                     android:textSize="15sp"
@@ -263,7 +266,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.5"
-                    />
+            />
 
             <android.widget.Button
                     android:id="@+id/btnLogInterruptionCancel"
@@ -280,8 +283,12 @@
                     app:layout_constraintEnd_toStartOf="@id/guideline"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
-
-
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guideline5"
+                    app:layout_constraintGuide_end="20dp"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

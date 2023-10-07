@@ -117,8 +117,12 @@ public class LogIndividualInterruptionActivity extends AppCompatActivity {
 
         //Initialize the spinners
 
-        String[] interruptionTypes = {"Tripping", "Breakdown", "Planned shutdown", "Emergency shutdown", "Load shedding"};
-        String[] faultNatures = {"EF OC", "EF", "OC", "High Set OC"};
+        List<String> interruptionTypes = new ArrayList<>(Arrays.asList("Tripping", "Breakdown", "Planned shutdown", "Emergency shutdown", "Main power fail", "Load shedding", "Source changeover"));
+        List<String> faultNatures = new ArrayList<>(Arrays.asList("EF OC", "EF", "OC", "High Set OC"));
+        if (((FeederModel)intent.getSerializableExtra("selectedFeeder")).getFeederType() == FeederType.OUTGOING_11kV
+         || ((FeederModel)intent.getSerializableExtra("selectedFeeder")).getFeederType() == FeederType.INCOMING_11kV) {
+            interruptionTypes.remove("Main power fail");
+        }
         ArrayAdapter adapterInterruptionType = new ArrayAdapter(this, R.layout.spinner_item, interruptionTypes);
         ArrayAdapter adapterFaultNature = new ArrayAdapter(this, R.layout.spinner_item, faultNatures);
         spinnerInterruptionType.setAdapter(adapterInterruptionType);
